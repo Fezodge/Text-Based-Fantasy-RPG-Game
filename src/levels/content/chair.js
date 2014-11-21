@@ -58,7 +58,7 @@ module.exports=function Door(options){
             }
 			else if (playersSitting.length<options.seats){
 				playersSitting.push(logicHelper.player);
-				currentRoom.message(logicHelper.player.name+" has sat down on the "+name+"".");
+				currentRoom.message(logicHelper.player.name+" has sat down on the "+name+".");
 			}
 			else{
 				logicHelper.player.message("There's no room.");
