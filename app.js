@@ -7,7 +7,7 @@ var Game = require('./src/Game'),
 
 var globalRoom = new Room;
 
-var game=new Game(globalRoom, ['level_one']);
+var game=new Game(globalRoom, [['level_one', 'entrance']]);
 
 var server = net.createServer(function (socket) {
 	var player = new Player(socket, game);    
@@ -20,7 +20,8 @@ var server = net.createServer(function (socket) {
 
 	//events
     socket.on('end', function() {
-	   globalRoom.remove(socket);
+	   globalRoom.remove(player);
+	   game.disconnectPlayer(player);
 	   globalRoom.message(player.name+" has left");
     });
 	socket.on('error', function(){});

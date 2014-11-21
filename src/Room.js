@@ -10,10 +10,8 @@ module.exports=(function (){
 				if (this.players[i]===player){
 					return true;
 				}
-				else{
-					return false;
-				}
 			}
+			return false;
 		},
 		get size(){
 			return this.players.length;

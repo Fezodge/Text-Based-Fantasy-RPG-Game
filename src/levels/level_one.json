@@ -5,8 +5,8 @@
         {
             "name": "door",
             "options": {
-                "level": "otherlevelName",
-                "doorName": "door"
+                "level": "other room",
+                "doorName": "north door"
             }
         },
         {

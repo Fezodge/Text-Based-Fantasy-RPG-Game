@@ -38,6 +38,19 @@ module.exports=(function(){
 			else {
 				processExternalCommand(this, player, raw);
 			}
+		},
+		disconnectPlayer:function(player){
+			var playerInARoom=true;
+			while (playerInARoom) {
+				var level=getPlayersLevel(this, player);
+							
+				if (!level){
+					playerInARoom=false;
+				}
+				else{
+					level.room.remove(player);
+				}
+			}
 		}
 	}
 
@@ -48,29 +61,45 @@ module.exports=(function(){
 				return levels[i];
 			}
 		}
+		return false;
 	}
 
-	var LogicHelper=(function(){//TODO finish this class
+	function getLevelById(game, id){
+		var levels=game.levelPack.levels;
+		for (var i in levels){
+			if (levels[i].id===id){
+				return levels[i];
+			}
+		}
+		return false;
+	}
+
+	var LogicHelper=(function(){
 		function LogicHelper(game, player, input, room){
+			this.game=game;
 			this.player=player;
-			this.currentRoom=room;//TODO change chair and door and template from getCurrentRoom() (depracated)
+			this.currentRoom=room;
 		}
 
         
 		LogicHelper.prototype={
-            getRoom:function(playerOrName){
+			//if player is given, player is moved to that players room
+            getRoom:function(playerOrRoomId){
                 //if its a player
-                if ('socket' in playerOrName){
-                    
+                if ('socket' in playerOrRoomId){
+                    return getPlayersLevel(this.game, playerOrRoomId).room;
                 }
                 //if its a name
                 else{
-                    
+                    return getLevelById(this.game, playerOrRoomId).room;
                 }
             },
-            movePlayerToRoom:function(playerOrName){
-                //move to 
-                //LogicHelper.prototype.getRoom(playerOrName)
+			//if player is given, player is moved to that players room
+            movePlayerToRoom:function(playerOrRoomId){
+				//invoke method directly from class in case movePlayerToRoom is saved in a variable.. Me clever!
+   				var room=LogicHelper.prototype.getRoom(playerOrRoomId);
+				this.currentRoom.remove(this.player);
+				room.add(this.player);
             }
 		};
 

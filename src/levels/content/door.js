@@ -6,6 +6,7 @@
 	options
 		level
 			-where the door leads to
+			-Player instance or roomId
 	    doorName
             -input must contain this
 	commands
