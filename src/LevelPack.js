@@ -19,7 +19,8 @@ module.exports=(function(){
 		var contentOptions=levelModule.contains;
 		var content=[];
 		for (var i in contentOptions){
-			content.push((require("./levels/content/"+contentOptions[i].name)) (contentOptions[i]));
+            debugger;
+			content.push(require("./levels/content/"+contentOptions[i].name) (contentOptions[i].options));
 		}
 		return content
 	}

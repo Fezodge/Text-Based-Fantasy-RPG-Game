@@ -1,5 +1,4 @@
 "use strict";
-
 /*
 	Door
 		For the player to move to other rooms
@@ -7,7 +6,8 @@
 	options
 		level
 			-where the door leads to
-	
+	    doorName
+            -input must contain this
 	commands
 		use
 			-moves player to level (option)
@@ -23,7 +23,7 @@ var Content=require("./Content");
 module.exports=function Door(options){
 	var logic={
 		"use":function(logicHelper){
-			logicHelper.getCurrentRoom().message(logicHelper.player.name+" has gone to "+options.level);
+			logicHelper.currentRoom.message(logicHelper.player.name+" has gone to "+options.level);
 			logicHelper.getRoom(options.level).message(logicHelper.player.name+" has entered.");
 			logicHelper.movePlayerToRoom(options.level);
 		},
@@ -32,5 +32,5 @@ module.exports=function Door(options){
 		}
 	};	
 
-	return Content(logic, "door");
+	return Content(logic, options.doorName);
 }

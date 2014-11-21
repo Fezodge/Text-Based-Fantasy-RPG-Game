@@ -56,8 +56,22 @@ module.exports=(function(){
 			this.currentRoom=room;//TODO change chair and door and template from getCurrentRoom() (depracated)
 		}
 
+        
 		LogicHelper.prototype={
-
+            getRoom:function(playerOrName){
+                //if its a player
+                if ('socket' in playerOrName){
+                    
+                }
+                //if its a name
+                else{
+                    
+                }
+            },
+            movePlayerToRoom:function(playerOrName){
+                //move to 
+                //LogicHelper.prototype.getRoom(playerOrName)
+            }
 		};
 
 		return LogicHelper;
