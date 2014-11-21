@@ -27,6 +27,15 @@ module.exports=function Door(options){
 
 	var playersSitting=[];
 
+    //decide name of chair
+    switch(options.type){
+        case "sofa_comfy":
+            var name="sofa";
+            break;
+        default:
+            var name="chair";
+    }
+    
 	var logic={
 		"sit":function(logicHelper){
 			
@@ -49,7 +58,7 @@ module.exports=function Door(options){
             }
 			else if (playersSitting.length<options.seats){
 				playersSitting.push(logicHelper.player);
-				currentRoom.message(logicHelper.player.name+" has sat down.");
+				currentRoom.message(logicHelper.player.name+" has sat down on the "+name+"".");
 			}
 			else{
 				logicHelper.player.message("There's no room.");
@@ -66,14 +75,7 @@ module.exports=function Door(options){
 		}
 	};	
 
-    //decide name of chair
-    switch(options.type){
-        case "sofa_comfy":
-            var name="sofa";
-            break;
-        default:
-            var name="chair";
-    }
+    
     
 	return Content(logic, name);
 }
