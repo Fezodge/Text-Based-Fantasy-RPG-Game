@@ -1,27 +1,35 @@
-var net = require('./src/myNet');
- 
-var users = [];
+"use strict";
+
+var engine = require('./src/engine'),
+	net = require('net'),
+	Room = require('./src/Room');
+
+var globalRoom = new Room;
+
+engine.makeGame(globalRoom, ['level_one']);
 
 var server = net.createServer(function (socket) {
-    broadcast("A new player has joined.", users);
-    users.push(socket);
-	socket.write('Welcome to the the game!');
-    socket.write('There are currently '+users.length+' players online.');
+	var player = new engine.Player(socket);    
+	globalRoom.message("A new player has joined.");
+    globalRoom.add(player);
+	player.message('Welcome to the the game!');
+    player.message('There are currently '+globalRoom.size+' players online.');
     
-    socket.on('end', function endSocket() {
-	   removeSocket(socket, users);
-    })
+
+	//events
+    socket.on('end', function() {
+	   globalRoom.remove(socket);
+	   globalRoom.message(player.name+" has left");
+    });
+	socket.on('error', function(){});
+	socket.on('data', function(data) {
+		data=String(data);
+		player.input+=data;
+		if (data.indexOf("\n")!=-1){
+			//clean input
+			player.input=player.input.replace(/(\r\n|\n|\r)/gm,"")			
+			player.submitInput();
+		}
+	})
+
 }).listen(23);
-
-function broadcast(message, sockets) {
-    for (var i in sockets) {
-        sockets[i].write(message);
-    }
-}
-
-function removeSocket(socket, sockets) {
-	var i = sockets.indexOf(socket);
-	if (i>-1) {
-		sockets.splice(i, 1);
-	}
-}
