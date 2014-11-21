@@ -2,7 +2,7 @@
 
 var LevelPack=require("./LevelPack")
 
-exports.game=(function(){
+module.exports=(function(){
 	function Game(globalRoom, levels){
 		this.globalRoom=globalRoom;
 		this.levelPack=new LevelPack(levels);
@@ -63,17 +63,29 @@ exports.game=(function(){
 		return LogicHelper;
 	}());
 
+    
+    function contains(big, test){
+        return (big.indexOf(test)>-1);
+    }
+    
 	//commands imported from content from level pack
 	function processExternalCommand(game, player, input){
-		currentLevel=getPlayersLevel(player);
+        
+        //content objects have name property as well as their logic now, this will mess shit up
+        //this is stopped by upper name check though so its just to be safer
+        if (startsWith(input,'name ')) {return;}
+        
+		var currentLevel=getPlayersLevel(game, player);
 		for (var content in currentLevel.contents){
 			for (var command in currentLevel.contents[content]){
 				//dont check hasownprop allow for inheritance		
 		
-				if (startsWith(input,command)){
+				if (startsWith(input,command+" ")){
 					var action=currentLevel.contents[content][command];
-					action(new LogicHelper(game, player, input, currentLevel.room));				
-					return;			
+                    if (contains(input.slice(command.length), currentLevel.contents[content].name)){
+					   action(new LogicHelper(game, player, input, currentLevel.room));
+					   return;		
+                    }	
 				}
 			}
 		}

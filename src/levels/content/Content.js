@@ -7,9 +7,13 @@ module.exports=(function(){
 	};
 
 	//factory class
-	function Content(logic, parent){
+	function Content(logic, name, parent){
 		parent=parent || prototype;
 		var that=Object.create(parent);
+        if (typeof name==="undefined"){
+            that.name="";
+        }
+        else{that.name=name;}
 		/*//if theres a parent with options		
 		if (that.options){
 			//copy options from parent

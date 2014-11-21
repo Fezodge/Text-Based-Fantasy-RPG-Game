@@ -26,5 +26,5 @@ module.exports=function Template(options){
 	
 	var parent=new Content(options.parentOptions);
 
-	return Content(logic,parent);
+	return Content(logic, "template", parent);
 }

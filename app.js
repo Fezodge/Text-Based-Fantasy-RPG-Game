@@ -1,17 +1,19 @@
 "use strict";
 
-var engine = require('./src/engine'),
+var Game = require('./src/Game'),
+    Player = require('./src/Player'),
 	net = require('net'),
 	Room = require('./src/Room');
 
 var globalRoom = new Room;
 
-engine.makeGame(globalRoom, ['level_one']);
+var game=new Game(globalRoom, ['level_one']);
 
 var server = net.createServer(function (socket) {
-	var player = new engine.Player(socket);    
+	var player = new Player(socket, game);    
 	globalRoom.message("A new player has joined.");
     globalRoom.add(player);
+    game.levelPack.levels[0].room.add(player);
 	player.message('Welcome to the the game!');
     player.message('There are currently '+globalRoom.size+' players online.');
     

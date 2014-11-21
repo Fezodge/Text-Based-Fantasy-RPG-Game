@@ -57,5 +57,5 @@ module.exports=function Door(options){
 		}
 	};	
 
-	return Content(logic);
+	return Content(logic, "chair");
 }

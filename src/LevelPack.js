@@ -26,7 +26,7 @@ module.exports=(function(){
 
 	LevelPack.prototype={
 		loadLevels:function(levels){
-			for (var i in levels){
+			for (var i=0; i<levels.length; i++){
 				this.levels.push(new Level(require("./levels/"+levels[i])));
 			}
 		}
