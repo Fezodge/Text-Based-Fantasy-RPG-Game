@@ -42,8 +42,8 @@ var server = net.createServer(function (socket) {
 server.maxConnections=50;
 
 function checkSocket(socket){
-    for (var i=0; i<game.globalRoom.length; i++){
-        if (game.globalRoom[i].socket.localAddress===socket.localAddress){
+    for (var i=0; i<game.globalRoom.players.length; i++){
+        if (game.globalRoom.players[i].socket.remoteAddress===socket.remoteAddress){
             socket.end();
         }
     }
