@@ -20,7 +20,6 @@ var server = net.createServer(function (socket) {
 	       game.globalRoom.message(player.name+" has left");
        }
     });
-	game.globalRoom.message("A new player has joined.");
     game.globalRoom.add(player);
     game.levelPack.levels[0].room.add(player);
 	player.message('Welcome to the the game!');
