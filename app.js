@@ -10,9 +10,16 @@ var game=new Game(['level_one', 'level_two', 'level_three', 'level_four']);
 var server = net.createServer(function (socket) {
     
     socket.on('error', function(){});
-    checkSocket(socket);
+    checkSocketIp(socket);
     
-	var player = new Player(socket, game);    
+	var player = new Player(socket, game);
+    socket.on('end', function() {
+	   game.globalRoom.remove(player);
+	   game.disconnectPlayer(player);
+       if (player.name!=="???"){
+	       game.globalRoom.message(player.name+" has left");
+       }
+    });
 	game.globalRoom.message("A new player has joined.");
     game.globalRoom.add(player);
     game.levelPack.levels[0].room.add(player);
@@ -20,14 +27,6 @@ var server = net.createServer(function (socket) {
     player.message('There are currently '+(game.globalRoom.size-1)+' other players online.');
     player.message();
     player.message(game.levelPack.levels[0].description);
-
-	//events
-    socket.on('end', function() {
-       
-	   game.globalRoom.remove(player);
-	   game.disconnectPlayer(player);
-	   game.globalRoom.message(player.name+" has left");
-    });
     
 	socket.on('data', function(data) {
 		data=String(data);
@@ -42,7 +41,7 @@ var server = net.createServer(function (socket) {
 }).listen(23);
 server.maxConnections=50;
 
-function checkSocket(socket){
+function checkSocketIp(socket){
     for (var i=0; i<game.globalRoom.players.length; i++){
         if (game.globalRoom.players[i].socket.remoteAddress===socket.remoteAddress){
             socket.end();
