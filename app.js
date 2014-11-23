@@ -9,6 +9,7 @@ var game=new Game(['level_one', 'level_two', 'level_three', 'level_four']);
 
 var server = net.createServer(function (socket) {
     
+    socket.on('error', function(){});
     checkSocket(socket);
     
 	var player = new Player(socket, game);    
@@ -27,7 +28,7 @@ var server = net.createServer(function (socket) {
 	   game.disconnectPlayer(player);
 	   game.globalRoom.message(player.name+" has left");
     });
-	socket.on('error', function(){});
+    
 	socket.on('data', function(data) {
 		data=String(data);
 		player.input+=data;
