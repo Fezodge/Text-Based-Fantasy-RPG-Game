@@ -43,7 +43,7 @@ server.maxConnections=50;
 
 function checkSocket(socket){
     for (var i=0; i<game.globalRoom.length; i++){
-        if (game.globalRoom[i].socket.remoteAddress===ip){
+        if (game.globalRoom[i].socket.remoteAddress===socket.remoteAddress){
             socket.end();
         }
     }
