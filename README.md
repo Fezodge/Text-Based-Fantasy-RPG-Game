@@ -34,6 +34,6 @@ bed (only one, called bed)
 
 all objects
 
-- pick up [object name] (fails on all current objects)
+- pick up [object name]
 
 Note: even tho I put in the [...] thats meaningless the parser just looks for the command at the start of your input and the name of the object somewhere in the input, you can put whatever words you want in to make it make sense. 
