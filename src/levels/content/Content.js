@@ -2,40 +2,51 @@
 
 module.exports=(function(){
 
-	var prototype={
-
+	var defaults={
+        "pick up":function(logicHelper){
+            if (this.__data__.name){
+                logicHelper.player.message("You can't pick up the "+this.__data__.name);
+            }
+		},
+        "__data__":{
+        
+        }
 	};
 
 	//factory class
-	function Content(logic, name, parent){
-		parent=parent || prototype;
+	function Content(logic, data, parent){
+		parent=parent || defaults;
 		var that=Object.create(parent);
-        if (typeof name==="undefined"){
-            that.name="";
+        
+        //copy `logic` into `content`
+        for (var key in logic){
+			if (logic.hasOwnProperty(key)){
+				that[key]=logic[key];
+			}
+		}
+        
+        that.__data__=Object.create(parent.__data__);
+            
+        //copy `data` to `that.__data__`
+        for (var key in data){
+			if (data.hasOwnProperty(key)){
+				that.__data__[key]=data[key];
+			}
+		}
+        
+        //no name was given
+        if (typeof that.__data__.name==="undefined"){
+            that.__data__.name="";
         }
-        else{that.name=name;}
-		/*//if theres a parent with options		
-		if (that.options){
-			//copy options from parent
-			that.options=that.options;
-			//copy new options
-			for (var i in options){
-				if (options.hasOwnProperty(i)){
-					that[i].options=options[i];
-				}
-			}
-		}
-		else{
-			that.options=options;
-		}*/
-		for (var i in logic){
-			if (logic.hasOwnProperty(i)){
-				that[i]=logic[i];
-			}
-		}
+        
+		
 		return that;
 	}
 
+    Content.makeParent=function(info){
+        return require("./"+info.module) (info.options);
+    }
+    
 	return Content;
 }());
 

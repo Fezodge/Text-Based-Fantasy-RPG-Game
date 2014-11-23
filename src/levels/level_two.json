@@ -1,0 +1,29 @@
+{
+    "id": "bathroom",
+    "description": "A tiny bathroom with a scuzzy toilet and a small hole in the wall just big enough for a person to crawl through.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "sewer",
+                "name": "hole",
+                "actionText": "You squeeze yourself through the tiny hole and come out on the other side."
+            }
+        },
+        {
+            "module": "door",
+            "options": {
+                "level": "entrance",
+                "name": "door"
+            }
+        },
+        {
+            "module": "chair",
+            "options": {
+                "name": "toilet",
+                "description": "A filthy toilet.",
+                "seats": 1
+            }
+        }
+    ]
+}

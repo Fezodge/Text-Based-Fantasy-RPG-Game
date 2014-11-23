@@ -1,0 +1,15 @@
+{
+    "id": "sewer",
+    "description": "A dank sewer.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "bathroom",
+                "name": "hole",
+                "type": "hole",
+                "actionText": "You squeeze yourself through the tiny passage and come out on the other side."
+            }
+        }
+    ]
+}

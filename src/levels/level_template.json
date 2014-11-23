@@ -1,11 +1,6 @@
 {
-    "name": "template",
+    "id": "template",
     "description": "a sample level",
-    "aliases": [
-        "room",
-        "level",
-        "area"
-    ],
     "contains": [
         {
             "name": "door",

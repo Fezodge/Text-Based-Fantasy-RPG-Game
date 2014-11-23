@@ -7,8 +7,12 @@
 		level
 			-where the door leads to
 			-Player instance or roomId
-	    doorName
+	    name
             -input must contain this
+        actionText
+            -text displayed when door is used (optional)
+        type
+            -ie. a `hole` that leads to...
 	commands
 		use
 			-moves player to level (option)
@@ -25,13 +29,23 @@ module.exports=function Door(options){
 	var logic={
 		"use":function(logicHelper){
 			logicHelper.currentRoom.message(logicHelper.player.name+" has gone to "+options.level);
-			logicHelper.getRoom(options.level).message(logicHelper.player.name+" has entered.");
+            var room=logicHelper.getRoom(options.level);
+            if (!room){console.log("room not found (door: "+options.doorName+")"); return true;}
+			room.message(logicHelper.player.name+" has entered.");
 			logicHelper.movePlayerToRoom(options.level);
+            if (options.actionText){
+                logicHelper.player.message(options.actionText);
+            }
+            logicHelper.describeRoom();
 		},
 		"examine":function(logicHelper){
-			logicHelper.player.message("A door that leads to "+options.level+".");
+			logicHelper.player.message("A "+(options.type || "door")+" that leads to the "+options.level+".");
 		}
 	};	
 
-	return Content(logic, options.doorName);
+    var data={
+        name:options.name
+    };
+    
+	return Content(logic, data);
 }

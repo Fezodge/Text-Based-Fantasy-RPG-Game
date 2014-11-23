@@ -1,10 +1,11 @@
 "use strict";
 
 var LevelPack=require("./LevelPack")
+var Room=require('./Room');
 
 module.exports=(function(){
-	function Game(globalRoom, levels){
-		this.globalRoom=globalRoom;
+	function Game(levels){
+		this.globalRoom=new Room;
 		this.levelPack=new LevelPack(levels);
 	}
 	function startsWith(string, starts){
@@ -27,9 +28,13 @@ module.exports=(function(){
 			}	
 
 			else if (startsWith(string, "say ")){
-				this.globalRoom.message(player.name+": \""+string.slice(4)+"\"");
+				getPlayersLevel(this, player).room.message(player.name+": \""+string.slice(4)+"\"");
 			}
 
+            else if (string==="examine"){
+				player.message(getPlayersLevel(this, player).description);
+			}
+            
 			else if (string==="quit"){
 				player.message('Thanks for Playing!');
 				player.socket.end();
@@ -74,6 +79,17 @@ module.exports=(function(){
 		return false;
 	}
 
+    function getLevel(game, playerOrRoomId){
+        //if its a player
+        if ('socket' in Object(playerOrRoomId)){//cast as object because for some dumb reason the in op doesnt for you
+            return getPlayersLevel(game, playerOrRoomId);
+        }
+        //if its a name
+        else{
+            return getLevelById(game, playerOrRoomId);
+        }
+    }
+    
 	var LogicHelper=(function(){
 		function LogicHelper(game, player, input, room){
 			this.game=game;
@@ -85,21 +101,16 @@ module.exports=(function(){
 		LogicHelper.prototype={
 			//if player is given, player is moved to that players room
             getRoom:function(playerOrRoomId){
-                //if its a player
-                if ('socket' in playerOrRoomId){
-                    return getPlayersLevel(this.game, playerOrRoomId).room;
-                }
-                //if its a name
-                else{
-                    return getLevelById(this.game, playerOrRoomId).room;
-                }
+                return getLevel(this.game, playerOrRoomId).room;
             },
 			//if player is given, player is moved to that players room
             movePlayerToRoom:function(playerOrRoomId){
-				//invoke method directly from class in case movePlayerToRoom is saved in a variable.. Me clever!
-   				var room=LogicHelper.prototype.getRoom(playerOrRoomId);
+   				var room=this.getRoom(playerOrRoomId);
 				this.currentRoom.remove(this.player);
 				room.add(this.player);
+            },
+            describeRoom:function(){ 
+                this.player.message(getLevel(this.game, this.player).description);
             }
 		};
 
@@ -114,19 +125,19 @@ module.exports=(function(){
 	//commands imported from content from level pack
 	function processExternalCommand(game, player, input){
         
-        //content objects have name property as well as their logic now, this will mess shit up
-        //this is stopped by upper name check though so its just to be safer
-        if (startsWith(input,'name ')) {return;}
+        //__data__ is an invalid command
+        //content has a __data__ property
+        if (startsWith(input,'__data__')) {return;}
         
 		var currentLevel=getPlayersLevel(game, player);
 		for (var content in currentLevel.contents){
+            //dont check hasownprop allow for inheritance
 			for (var command in currentLevel.contents[content]){
-				//dont check hasownprop allow for inheritance		
-		
 				if (startsWith(input,command+" ")){
-					var action=currentLevel.contents[content][command];
-                    if (contains(input.slice(command.length), currentLevel.contents[content].name)){
-					   action(new LogicHelper(game, player, input, currentLevel.room));
+                    var contentInstance=currentLevel.contents[content];
+                    if (contains(input.slice(command.length), contentInstance.__data__.name)){
+                       //`this` in following function must be content instance
+					   contentInstance[command](new LogicHelper(game, player, input, currentLevel.room));
 					   return;		
                     }	
 				}

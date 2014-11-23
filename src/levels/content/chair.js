@@ -5,18 +5,17 @@
 		used for players to sit in
 
 	options
-		type
-			-what type of chair
-				-sofa_comfy
-				-normal chair (default)
+		name
+			-name that appears in command
 		seats
 			-how many people can sit in the chair
-				-default 2
-	
+	    description
+            -what the chair looks like
 	commands
 		sit
 			-checks if theres an empty seat and 
-
+        examine
+            -reads option.description to player
 	parent
 		none
 */
@@ -26,15 +25,6 @@ var Content=require("./Content");
 module.exports=function Door(options){
 
 	var playersSitting=[];
-
-    //decide name of chair
-    switch(options.type){
-        case "sofa_comfy":
-            var name="sofa";
-            break;
-        default:
-            var name="chair";
-    }
     
 	var logic={
 		"sit":function(logicHelper){
@@ -58,24 +48,38 @@ module.exports=function Door(options){
             }
 			else if (playersSitting.length<options.seats){
 				playersSitting.push(logicHelper.player);
-				currentRoom.message(logicHelper.player.name+" has sat down on the "+name+".");
+				currentRoom.message(logicHelper.player.name+" sat down on the "+options.name+".");
 			}
 			else{
 				logicHelper.player.message("There's no room.");
 			}
 		},
+        "get off":function(logicHelper){
+            //update playersSitting
+            for (var i in playersSitting){
+                if (playersSitting[i]===logicHelper.player){
+                    playersSitting.splice(i,1);
+                    logicHelper.currentRoom.message(logicHelper.player.name+" got off the "+options.name+".");
+                    return;
+                }
+            }
+		},
 		"examine":function(logicHelper){
-			switch (options.type){
-				case "sofa_comfy":
-					logicHelper.player.message("A super comfy sofa.");
-					break;
-				default:
-					logicHelper.player.message("A chair.");
-			}
+			logicHelper.player.message(options.description);
 		}
 	};	
 
+    var data={
+        name:options.name,
+        isSitting:function(player){
+            for (var i in playersSitting){
+                if (playersSitting[i]===player){
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
     
-    
-	return Content(logic, name);
+	return Content(logic, data);
 }

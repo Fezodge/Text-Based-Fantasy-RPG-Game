@@ -1,6 +1,6 @@
 {
   "name": "textBased",
-  "version": "0.1.0",
+  "version": "0.1.0-1",
   "description": "Text-based detective/escape telnet game",
   "main": "app.js",
   "scripts": {
@@ -20,5 +20,9 @@
   "homepage": "https://github.com/spleen387/textBased",
   "devDependencies": {
     "jasmine-node": "^1.14.5"
+  },
+  "subdomain": "stb",
+  "engines": {
+    "node": "0.10.x"
   }
 }

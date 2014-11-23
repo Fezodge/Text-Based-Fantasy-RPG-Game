@@ -1,18 +1,26 @@
 {
-    "name": "template",
-    "description": "a sample level",
+    "id": "entrance",
+    "description": "A small cramped room with a three person sofa in the corner and a door on the north side and another on the south.",
     "contains": [
         {
-            "name": "door",
+            "module": "door",
             "options": {
-                "level": "other room",
-                "doorName": "north door"
+                "level": "bathroom",
+                "name": "north door"
             }
         },
         {
-            "name": "chair",
+            "module": "door",
             "options": {
-                "type": "sofa_comfy",
+                "level": "bedroom",
+                "name": "south door"
+            }
+        },
+        {
+            "module": "chair",
+            "options": {
+                "name": "sofa",
+                "description": "A super comfy sofa.",
                 "seats": 3
             }
         }
