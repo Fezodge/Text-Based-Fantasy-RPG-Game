@@ -37,3 +37,4 @@ var server = net.createServer(function (socket) {
 	})
 
 }).listen(23);
+server.maxConnections=10;
