@@ -5,11 +5,12 @@ var Game = require('./src/Game'),
 	net = require('net'),
 	Room = require('./src/Room');
 
-var globalRoom = new Room;
-
 var game=new Game(['level_one', 'level_two', 'level_three', 'level_four']);
 
 var server = net.createServer(function (socket) {
+    
+    checkSocket(socket);
+    
 	var player = new Player(socket, game);    
 	game.globalRoom.message("A new player has joined.");
     game.globalRoom.add(player);
@@ -21,6 +22,7 @@ var server = net.createServer(function (socket) {
 
 	//events
     socket.on('end', function() {
+       
 	   game.globalRoom.remove(player);
 	   game.disconnectPlayer(player);
 	   game.globalRoom.message(player.name+" has left");
@@ -37,4 +39,15 @@ var server = net.createServer(function (socket) {
 	})
 
 }).listen(23);
-server.maxConnections=10;
+server.maxConnections=50;
+
+function checkSocket(socket){
+    for (var i in game.globalRoom){
+        var ip=game.globalRoom[i].socket.remoteAddress;
+        for (var ii in game.globalRoom){
+            if (i!==ii && game.globalRoom[ii].socket.remoteAddress===ip){
+                socket.end();
+            }
+        }
+    }
+}
