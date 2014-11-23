@@ -42,7 +42,7 @@ var server = net.createServer(function (socket) {
 server.maxConnections=50;
 
 function checkSocket(socket){
-    for (var i in game.globalRoom){
+    for (var i=0; i<game.globalRoom.length; i++){
         if (game.globalRoom[i].socket.remoteAddress===ip){
             socket.end();
         }
