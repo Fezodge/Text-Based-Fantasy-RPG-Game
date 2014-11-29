@@ -16,6 +16,7 @@ module.exports=(function(){
 		input:function(player, string){
 			var raw=string;
 			string=string.toLowerCase();
+            
 			if (player.name==="???" && startsWith(string, "name ")){
 				if (this.globalRoom.isNameUsed(string.slice(5)) || string.slice(5)===""){
 					player.message("\""+string.slice(5)+"\" has already been used.");
@@ -94,6 +95,7 @@ module.exports=(function(){
 		function LogicHelper(game, player, input, room){
 			this.game=game;
 			this.player=player;
+            this.input=input;
 			this.currentRoom=room;
 		}
 
