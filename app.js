@@ -38,7 +38,7 @@ var server = net.createServer(function (socket) {
 		inputer.add(data);
 	})
 
-}).listen(23);
+}).listen(6283);
 server.maxConnections=50;
 
 function checkSocketIp(socket){
