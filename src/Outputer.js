@@ -7,7 +7,7 @@ module.exports=(function(){
   }
 
   Outputer.prototype={
-    write:function(text, line){
+    write:function(text, line){//TODO add max to write (1000000 char)?
 			text = text || "";
       if (text.length>=this.lineLength){
         var pre = text.slice(0,this.lineLength);

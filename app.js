@@ -9,7 +9,7 @@ var net = require('net'),
     Player = require('./src/Player'),
 	Room = require('./src/Room');
 
-var game=new Game(['level_one', 'level_two', 'level_three', 'level_four']);
+var game=new Game(['level_one', 'level_two', 'level_three', 'level_four', 'level_streets']);
 
 var server = net.createServer(function (socket) {
 

@@ -10,6 +10,15 @@
                 "type": "hole",
                 "actionText": "You squeeze yourself through the tiny passage and come out on the other side."
             }
+        },
+        {
+            "module": "door",
+            "options":{
+                "level": "streets",
+                "name": "manhole",
+                "type": "manhole",
+                "actionText": "With a great heave you lift the manhole and crawl upward."
+            }
         }
     ]
 }

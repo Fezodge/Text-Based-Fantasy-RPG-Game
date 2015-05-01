@@ -60,31 +60,29 @@ module.exports=(function(){
 				}
 			}
 		}
-	}
+	};
 
     function contains(big, test){
         return (big.indexOf(test)>-1);
     }
 
-	function processExternalCommand(game, player, input){
+	function processExternalCommand(game, player, input){//CLUSTERFUCK!
 
-    if (startsWith(input,'__data__')) {return;}
+    	if (startsWith(input,'__data__')) {return;}
 
 		var currentLevel=getLevel.getPlayersLevel(game, player);
 
 		for (var content in currentLevel.contents){
 			for (var command in currentLevel.contents[content]){
 			  if (startsWith(input,command+" ")){
-          var contentInstance=currentLevel.contents[content];
-          if (contains(input.slice(command.length), contentInstance.__data__.name)){
-            contentInstance[command](new LogicHelper(game, player, input, currentLevel.room));
-					  return;
-          }
+		          var contentInstance=currentLevel.contents[content];
+		          if (contains(input.slice(command.length), " "+ contentInstance.__data__.name)){
+		            contentInstance[command](new LogicHelper(game, player, input, currentLevel.room));
+				  	return;
+		          }
 				}
 			}
 		}
-
-
 	}
 
 	return Game;
