@@ -1,0 +1,39 @@
+{
+    "id": "forest-north",
+    "description": "A small clearing in the middle of the forest. Only a few trees surround the border of the forest.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-south",
+				"name": "north-door",
+				"type": "trail",
+				"action-text": ""
+            },
+			
+			"module": "door",
+            "options": {
+                "level": "forest-middle",
+				"name": "south-door",
+				"type": "trail",
+				"action-text": ""
+            },
+		
+			"module": "door",
+            "options": {
+                "level": "forest-north-west",
+				"name": "west-door",
+				"type": "trail",
+				"action-text": ""
+            },
+		
+			"module": "door",
+            "options": {
+                "level": "forest-north-east",
+				"name": "east-door",
+				"type": "trail",
+				"action-text": ""
+            }
+        }
+    ]
+}

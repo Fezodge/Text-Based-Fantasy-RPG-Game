@@ -1,0 +1,54 @@
+{
+    "id": "forest-south",
+    "description": "A ",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-middle",
+				"name": "north-door",
+				"type": "trail",
+				"action-text": ""
+            },
+			
+            "module": "door",
+            "options": {
+                "level": "forest-north",
+				"name": "south-door",
+				"type": "trail",
+				"action-text": ""
+            },
+			
+			
+			"module": "door",
+            "options": {
+                "level": "dungeon-north",
+				"name": "tree-door",
+				"type": "trapdoor",
+				"action-text": "As you open the rusty door, a waft of foul stenching air hits you in the face. You carefully head down the steps, and into the tree"
+            },
+		
+			"module": "door",
+            "options": {
+                "level": "forest-south-west",
+				"name": "west-door",
+				"type": "trail",
+				"action-text": ""
+            },
+		
+			"module": "door",
+            "options": {
+                "level": "forest-south-east",
+				"name": "east-door",
+				"type": "trail",
+				"action-text": ""
+            },
+			
+			"module": "tree",
+			"options": {
+				"description": "A large tree, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the wood.",
+				"type": "secret-tree"
+			}
+        }
+    ]
+}
