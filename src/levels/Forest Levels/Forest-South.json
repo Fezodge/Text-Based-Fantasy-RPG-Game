@@ -1,6 +1,6 @@
 {
     "id": "forest-south",
-    "description": "A ",
+    "description": "A small avenue of oak trees lead down a wide path to a little cottage.",
     "contains": [
         {
             "module": "door",
@@ -20,13 +20,6 @@
             },
 			
 			
-			"module": "door",
-            "options": {
-                "level": "dungeon-north",
-				"name": "tree-door",
-				"type": "trapdoor",
-				"action-text": "As you open the rusty door, a waft of foul stenching air hits you in the face. You carefully head down the steps, and into the tree"
-            },
 		
 			"module": "door",
             "options": {
@@ -44,10 +37,6 @@
 				"action-text": ""
             },
 			
-			"module": "tree",
-			"options": {
-				"description": "A large tree, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the wood.",
-				"type": "secret-tree"
 			}
         }
     ]

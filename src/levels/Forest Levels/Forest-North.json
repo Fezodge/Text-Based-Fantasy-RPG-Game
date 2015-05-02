@@ -1,6 +1,6 @@
 {
     "id": "forest-north",
-    "description": "A small clearing in the middle of the forest. Only a few trees surround the border of the forest.",
+    "description": "A nice little terrace garden with a rusted bench at the side.",
     "contains": [
         {
             "module": "door",
@@ -33,7 +33,14 @@
 				"name": "east-door",
 				"type": "trail",
 				"action-text": ""
-            }
+            },
+			
+			"module": "chair",
+			"options": {
+				"name": "garden-bench",
+				"seats": 2,
+				"description": "A rusty garden bench shaped in the shape of two doves kissing"
+			}
         }
     ]
 }
