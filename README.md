@@ -1,5 +1,5 @@
 ###Windows (cmd.exe)
-to run use `telnet 162.243.206.236` in cmd.exe
+to run use `telnet localhost 6283` in cmd.exe
 
 if it shows an error you probably need to enable telnet 
 https://kb.ctera.com/article/how-to-open-a-telnet-session-on-windows-7-or-windows-8-os-16.html
