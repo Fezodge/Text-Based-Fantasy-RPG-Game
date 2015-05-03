@@ -6,35 +6,39 @@
             "module": "door",
             "options": {
                 "level": "forest-south",
-				"name": "north-door",
+				"name": "north trail",
 				"type": "trail",
 				"action-text": ""
-            },
-			
+            }
+		},
+		{	
 			"module": "door",
             "options": {
                 "level": "forest-middle",
-				"name": "south-door",
+				"name": "south trail",
 				"type": "trail",
 				"action-text": ""
-            },
-		
+            }
+		},
+		{		
 			"module": "door",
             "options": {
                 "level": "forest-north-west",
-				"name": "west-door",
+				"name": "west trail",
 				"type": "trail",
 				"action-text": ""
-            },
-		
+            }
+		},
+		{
 			"module": "door",
             "options": {
                 "level": "forest-north-east",
-				"name": "east-door",
+				"name": "east trail",
 				"type": "trail",
 				"action-text": ""
-            },
-			
+            }
+		},
+		{	
 			"module": "chair",
 			"options": {
 				"name": "garden-bench",

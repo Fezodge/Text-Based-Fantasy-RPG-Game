@@ -1,6 +1,6 @@
 "use strict";
 
-//Server crashes with multiple local clients
+//Server crashes with multiple local clients (with uncommented thing below)
 
 var TELNET_PORT=6283;
 
@@ -9,7 +9,12 @@ var net = require('net'),
     Player = require('./src/Player'),
 	Room = require('./src/Room');
 
-var game=new Game(['level_one', 'level_two', 'level_three', 'level_four', 'level_streets']);
+var fs = require("fs"),
+    path = require("path");
+
+var levelList = fs.readDirSync(path.join(__dirname, "src/levels/forest-levels"));
+
+var game=new Game(levelList);
 
 var server = net.createServer(function (socket) {
 
