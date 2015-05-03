@@ -24,8 +24,5 @@
   "subdomain": "stb",
   "engines": {
     "node": "0.10.x"
-  },
-  "dependencies": {
-    "ansi": "^0.3.0"
   }
 }

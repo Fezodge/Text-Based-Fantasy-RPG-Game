@@ -1,12 +1,8 @@
 "use strict";
 
-var ansi = require('ansi');
-
 module.exports=(function(){
   function Outputer(socket, lineLength){
     this.socket=socket;
-    this.cursor=ansi(socket);
-    this.cursor.red().bg.grey();
     this.lineLength=lineLength || 80;
   }
 
@@ -27,11 +23,11 @@ module.exports=(function(){
           post = preCutOff + post;
         }
         
-        this.cursor.write(pre+"\r\n");
+        this.socket.write(pre+"\r\n");
         this.write(post, line);
       }
       else{
-        this.cursor.write(text+(line?"\r\n":""));
+        this.socket.write(text+(line?"\r\n":""));
       }
     },
     writeLine:function(text){
@@ -41,7 +37,7 @@ module.exports=(function(){
       this.write(Array(numOfChar).join("\b"));
     },
     close:function(){
-      this.cursor.end();
+      this.socket.end();
     }
   };
 
