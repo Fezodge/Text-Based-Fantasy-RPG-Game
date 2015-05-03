@@ -6,7 +6,7 @@
             "module": "door",
             "options": {
                 "level": "forest-north",
-				"name": "north door",
+				"name": "north trail",
 				"type": "trail",
 				"action-text": ""
             }
@@ -48,8 +48,9 @@
             }
 		},
 		{			
-			"module": "tree",
+			"module": "door",
 			"options": {
+				"level": "???",
 				"description": "A large tree, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the wood.",
 				"type": "secret-tree"
 			}
