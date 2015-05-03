@@ -12,7 +12,10 @@ var net = require('net'),
 var fs = require("fs"),
     path = require("path");
 
-var levelList = fs.readDirSync(path.join(__dirname, "src/levels/forest-levels"));
+var levelList = fs.readdirSync(path.join(__dirname, "src/levels/forest-levels"));
+levelList=levelList.map(function(item){
+    return path.join("forest-levels/", item);
+})
 
 var game=new Game(levelList);
 
