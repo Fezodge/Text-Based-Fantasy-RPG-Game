@@ -16,10 +16,10 @@ We don't really know if they work, cmd has this weird thing where it sends each 
 ###The game
 ####There are several built-in commands:
 
-`name [your name]` gives you a name, can only use once
-`say [sentence]` chat to the people in the same room as you
-`quit` leave game
-`examine` describes the room your in
+`name [your name]` - gives you a name, can only use once
+`say [sentence]` - chat to the people in the same room as you
+`quit` - leave game
+`examine` - describes the room your in
 
 Every object also has its own commands:
 #####Chair (also called toilet and sofa in game)
@@ -30,8 +30,8 @@ Every object also has its own commands:
 
 #####Doors (north, south, east and west)
 
-- use [door name]
-- examine
+- Use [door name]
+- Examine
 
 #####Bed (only one, called bed)
 
