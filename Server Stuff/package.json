@@ -1,6 +1,6 @@
 {
   "name": "Telnet Fantasy RPG Game",
-  "version": "0.1.0-1",
+  "version": "0.0.0",
   "description": "A Fantasy text-based adventure game made for the CodeTree Game Jam",
   "main": "app.js",
   "scripts": {
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/spleen387/textBased.git"
+    "url": "https://github.com/FezodgeIII/Telnet-Fantasy-RPG-Game.git"
   },
   "keywords": [],
-  "author": "Spencer Killen",
+  "author": "Spencer Killen, Jared Fisher-Chessell, and Joseph Pullan",
   "license": "None",
   "bugs": {
-    "url": "https://github.com/spleen387/textBased/issues"
+    "url": "https://github.com/FezodgeIII/Telnet-Fantasy-RPG-Game/issues"
   },
-  "homepage": "https://github.com/spleen387/textBased",
+  "homepage": "https://github.com/FezodgeIII/Telnet-Fantasy-RPG-Game",
   "devDependencies": {
     "jasmine-node": "^1.14.5"
   },
