@@ -22,7 +22,7 @@
 
 var Content=require("./Content");
 
-module.exports=function Door(options){
+module.exports=function Chair(options){
 
 	var playersSitting=[];
     

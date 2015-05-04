@@ -23,7 +23,7 @@
 
 var Content=require("./Content");
 
-module.exports=function Door(options){
+module.exports=function Bed(options){
     var logic={
         "examine":function(logicHelper){
             logicHelper.player.message(options.description);

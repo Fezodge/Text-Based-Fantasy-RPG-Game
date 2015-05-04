@@ -46,7 +46,7 @@ module.exports=function Template(options){
         name:options.name,
         
         //already defined through inheritence
-        playersSitting:parent.__data__.playersSitting;
+        playersSitting:parent.__data__.playersSitting
     };
     
 	return Content(logic, data, parent);

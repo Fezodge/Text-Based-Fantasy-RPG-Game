@@ -1,6 +1,6 @@
 {
     "id": "forest-south",
-    "description": "A small avenue of oak trees lead down a wide path to a little cottage.",
+    "description": "A small avenue of oak trees lead down a wide path to a little cottage. A monster lurks in the shadows",
     "contains": [
         {
             "module": "door",
@@ -36,6 +36,14 @@
 				"name": "east trail",
 				"type": "trail",
 				"action-text": ""
+            }
+		},
+		{
+			"module": "enemy",
+            "options": {
+				"name": "monster",
+				"hitPoints": 5,
+				"description": "A big hairy nasty troll."
             }
 		}
     ]
