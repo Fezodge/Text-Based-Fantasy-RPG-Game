@@ -1,0 +1,42 @@
+{
+    "id": "dungeon-south-east",
+    "description": "",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "dungeon-east",
+				"name": "north passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "dungeon-north-east",
+				"name": "south passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-south",
+				"name": "west passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "east passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        }
+    ]
+}
