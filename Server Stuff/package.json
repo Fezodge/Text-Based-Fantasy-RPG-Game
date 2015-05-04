@@ -1,7 +1,7 @@
 {
-  "name": "textBased",
+  "name": "Telnet Fantasy RPG Game",
   "version": "0.1.0-1",
-  "description": "Text-based detective/escape telnet game",
+  "description": "A Fantasy text-based adventure game made for the CodeTree Game Jam",
   "main": "app.js",
   "scripts": {
     "start": "node app",

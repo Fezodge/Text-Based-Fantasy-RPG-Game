@@ -26,7 +26,7 @@ module.exports=(function(){
 		var contentOptions=levelModule.contains;
 		var content=[];
 		for (var i in contentOptions){
-			content.push(require("./levels/content/"+contentOptions[i].module) (contentOptions[i].options));
+			content.push(require("./Levels/Content/"+contentOptions[i].module) (contentOptions[i].options));
 		}
 		return content
 	}
@@ -34,7 +34,7 @@ module.exports=(function(){
 	LevelPack.prototype={
 		loadLevels:function(levels){
 			for (var i=0; i<levels.length; i++){
-                var levelModule=require("./levels/"+levels[i]);
+                var levelModule=require("./Levels/"+levels[i]);
 				this.levels.push(new Level(levelModule));
 			}
 		}
