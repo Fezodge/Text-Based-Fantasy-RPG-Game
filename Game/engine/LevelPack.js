@@ -1,6 +1,7 @@
 "use strict";
 
-var Room=require('./Room.js');
+var Room=require('./Room.js'),
+	path=require("path");
 
 module.exports=(function(){
 	//levels is an array of arrays first item is level module name second is a string id
@@ -26,7 +27,7 @@ module.exports=(function(){
 		var contentOptions=levelModule.contains;
 		var content=[];
 		for (var i in contentOptions){
-			content.push(require("./Levels/Content/"+contentOptions[i].module) (contentOptions[i].options));
+			content.push(require("./../levels/content/"+contentOptions[i].module) (contentOptions[i].options));
 		}
 		return content
 	}
@@ -34,7 +35,7 @@ module.exports=(function(){
 	LevelPack.prototype={
 		loadLevels:function(levels){
 			for (var i=0; i<levels.length; i++){
-                var levelModule=require("./Levels/"+levels[i]);
+                var levelModule=require(path.join(__dirname, "./../levels/", levels[i]));
 				this.levels.push(new Level(levelModule));
 			}
 		}

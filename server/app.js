@@ -4,15 +4,19 @@
 
 var TELNET_PORT=6283;
 
-var net = require('net'),
-    Game = require('./Game/Setup/Game'),
-    Player = require('./Game/Setup/Player'),
-	Room = require('./Game/Setup/Room');
 
 var fs = require("fs"),
     path = require("path");
 
-var levelList = fs.readdirSync(path.join(__dirname, "Game/levels/forest-levels"));
+//console.log(fs.readdirSync('../game/engine'));
+
+var net = require('net'),
+    Game = require('./../game/engine/Game'),
+    Player = require('./../game/engine/Player'),
+	Room = require('./../game/engine/Room');
+
+
+var levelList = fs.readdirSync(path.join(__dirname, "./../game/levels/forest-levels"));
 levelList=levelList.map(function(item){
     return path.join("forest-levels/", item);
 })
