@@ -1,6 +1,6 @@
 {
     "id": "dungeon-north",
-    "description": "",
+    "description": "A big wall looms over you. this wall somehow seems different to all the others...",
     "contains": [
         {
             "module": "door",
@@ -37,6 +37,14 @@
 				"type": "passage",
 				"action-text": ""
             }
-		}
+		},
+		{			
+			"module": "door",
+			"options": {
+				"level": "???",
+				"description": "A large wall, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the stone.",
+				"type": "secret passage"
+			}
+        }
     ]
 }

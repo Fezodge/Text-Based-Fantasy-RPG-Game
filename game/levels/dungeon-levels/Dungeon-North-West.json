@@ -1,6 +1,6 @@
 {
     "id": "dungeon-north-west",
-    "description": "",
+    "description": "Dead remains of some kind or vermin lie splatted across the room.",
     "contains": [
         {
             "module": "door",

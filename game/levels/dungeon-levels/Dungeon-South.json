@@ -1,6 +1,6 @@
 {
     "id": "dungeon-south",
-    "description": "",
+    "description": "A large purple door stands out against tye grey of the walls.",
     "contains": [
         {
             "module": "door",
@@ -37,6 +37,6 @@
 				"type": "passage",
 				"action-text": ""
             }
-		},
+		}
     ]
 }
