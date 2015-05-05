@@ -2,6 +2,7 @@
 ##By Spencer, Jared, and Joseph
 
 ##How To Use:
+##Stable Host
 ###Windows (cmd.exe)
 First you must stet up the server by navigating to the directory you have downloaded this game into in cmd.exe.
 Type `node app` to enable the server that your game will be played on.
@@ -9,6 +10,8 @@ To run the game use `telnet localhost 6283` in a seperate cmd.exe.
 
 If it shows an error you probably need to enable telnet :
 https://kb.ctera.com/article/how-to-open-a-telnet-session-on-windows-7-or-windows-8-os-16.html
+
+The latest stable build is also hosted on spencerkillen.me port 6283
 
 ###Everything else
 We don't really know if they work, cmd has this weird thing where it sends each character you type, so it'd be great if someone good test it out in terminal for Linux/Mac OS
