@@ -16,9 +16,9 @@ var net = require('net'),
 	Room = require(path.join(__dirname, './../game/engine/Room'));
 
 
-var levelList = fs.readdirSync(path.join(__dirname, "./../game/levels/forest-levels"));
+var levelList = fs.readdirSync(path.join(__dirname, "./../game/levels/dungeon-levels"));
 levelList=levelList.map(function(item){
-    return path.join("forest-levels/", item);
+    return path.join("dungeon-levels/", item);
 })
 
 var game=new Game(levelList);

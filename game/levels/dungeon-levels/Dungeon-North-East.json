@@ -1,6 +1,6 @@
 {
     "id": "dungeon-north-east",
-    "description": "",
+    "description": "A few wooden barrels lie tipped over of the floor, their contents spilling everywhere.",
     "contains": [
         {
             "module": "door",

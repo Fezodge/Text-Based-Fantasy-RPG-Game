@@ -1,6 +1,6 @@
 {
     "id": "dungeon-south-west",
-    "description": "",
+    "description": "A sewr emeges out of the wall, but ends about 10 foot into the room.",
     "contains": [
         {
             "module": "door",

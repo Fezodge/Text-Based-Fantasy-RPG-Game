@@ -1,6 +1,6 @@
 {
     "id": "dungeon-middle",
-    "description": "",
+    "description": "On top of a floor of cobblestone lies 4 chests, one in each corner of the room, all identical.",
     "contains": [
         {
             "module": "door",
@@ -46,14 +46,6 @@
 				"type": "trapdoor",
 				"action-text": ""
             }
-		},
-		{			
-			"module": "door",
-			"options": {
-				"level": "???",
-				"description": "A large wall, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the stone.",
-				"type": "secret passage"
-			}
-        }
+		}
     ]
 }

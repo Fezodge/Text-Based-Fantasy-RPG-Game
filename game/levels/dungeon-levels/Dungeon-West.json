@@ -1,6 +1,6 @@
 {
     "id": "dungeon-west",
-    "description": "",
+    "description": "there seems to be another exit to this room, but it's blocked by an iron gate.",
     "contains": [
         {
             "module": "door",

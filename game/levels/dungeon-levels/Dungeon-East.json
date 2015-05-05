@@ -1,6 +1,6 @@
 {
     "id": "dungeon-east",
-    "description": "",
+    "description": "A horde of monsters emerges from the shadows.",
     "contains": [
         {
             "module": "door",
