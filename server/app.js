@@ -11,9 +11,9 @@ var fs = require("fs"),
 //console.log(fs.readdirSync('../game/engine'));
 
 var net = require('net'),
-    Game = require('./../game/engine/Game'),
-    Player = require('./../game/engine/Player'),
-	Room = require('./../game/engine/Room');
+    Game = require(path.join(__dirname, './../game/engine/Game')),
+    Player = require(path.join(__dirname, './../game/engine/Player')),
+	Room = require(path.join(__dirname, './../game/engine/Room'));
 
 
 var levelList = fs.readdirSync(path.join(__dirname, "./../game/levels/forest-levels"));
