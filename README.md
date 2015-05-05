@@ -2,7 +2,6 @@
 ##By Spencer, Jared, and Joseph
 
 ##How To Use:
-##Stable Host
 ###Windows (cmd.exe)
 First you must stet up the server by navigating to the directory you have downloaded this game into in cmd.exe.
 Type `node app` to enable the server that your game will be played on.
