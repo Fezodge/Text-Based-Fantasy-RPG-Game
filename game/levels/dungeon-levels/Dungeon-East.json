@@ -1,6 +1,6 @@
 {
     "id": "dungeon-east",
-    "description": "A horde of monsters emerges from the shadows.",
+    "description": "A horde of monsters emerges from the shadows. There are passages in every direction.",
     "contains": [
         {
             "module": "door",

@@ -2,7 +2,8 @@
 
 //Server crashes with multiple local clients (with uncommented thing below)
 
-var TELNET_PORT=6283;
+var TELNET_PORT=6283,
+    STARTING_LEVEL_ID="dungeon-east";
 
 
 var fs = require("fs"),
@@ -27,6 +28,14 @@ for (var i=0; i<folders.length; i++){
 
 var game=new Game(levelList);
 
+for (var ii; ii<game.levelPack.levels.length; ii++){
+    if (STARTING_LEVEL_ID===game.levelPack.levels[ii].id){
+        var startingLevel=game.levelPack.levels[ii];
+    }
+}
+
+ game.levelPack.levels[0].room.add(player);
+
 var server = net.createServer(function (socket) {
 
     var player = new Player(socket, game);
@@ -47,7 +56,7 @@ var server = net.createServer(function (socket) {
 
     checkSocketIp(socket);
     game.globalRoom.add(player);
-    game.levelPack.levels[0].room.add(player);
+    startingLevel.room.add(player);
 	player.message('Welcome to the the game!');
     player.message('There are currently '+(game.globalRoom.size-1)+' other players online.');
     player.message(game.levelPack.levels[0].description);
