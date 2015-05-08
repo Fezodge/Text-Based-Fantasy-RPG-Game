@@ -18,17 +18,24 @@
 */
 
 var Content=require("./Content"),
-	path=require("path");
+	Inventory=require(require("path").join(__dirname, "./../../engine/Inventory"));
 
 module.exports=function Spawn(options){
 	
-    
+    options.inventory=new Inventory();
+	
+	for (var i=0; i<options.quantity; i++){
+		options.inventory.addNew(options.item);
+	}
+	
 	return Content(logic, options);
 };
 
 var logic={
 	"search":function(logicHelper){
-		var a=this;
-		debugger;
+		var inventory=this.__data__.inventory;
+		if (inventory.items.length>0){
+			inventory.lendItemTo(logicHelper.player.inventory);
+		}
 	}
 };	

@@ -37,6 +37,14 @@
 				"type": "passage",
 				"action-text": ""
             }
+        },
+        {
+            "module": "spawn",
+            "options": {
+                "name":"chest",
+                "quantity":1,
+                "item":"key"
+            }
         }
     ]
 }
