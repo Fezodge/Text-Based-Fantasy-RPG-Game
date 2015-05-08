@@ -28,13 +28,11 @@ for (var i=0; i<folders.length; i++){
 
 var game=new Game(levelList);
 
-for (var ii; ii<game.levelPack.levels.length; ii++){
+for (var ii=0; ii<game.levelPack.levels.length; ii++){
     if (STARTING_LEVEL_ID===game.levelPack.levels[ii].id){
         var startingLevel=game.levelPack.levels[ii];
     }
 }
-
- game.levelPack.levels[0].room.add(player);
 
 var server = net.createServer(function (socket) {
 
