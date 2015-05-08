@@ -1,7 +1,8 @@
 "use strict";
 
 var Inputer = require('./Inputer'),
-    Outputer = require('./Outputer');
+    Outputer = require('./Outputer'),
+    Inventory = require('./Inventory');
 
 module.exports=(function (){
 	function Player(socket, game){
@@ -9,6 +10,7 @@ module.exports=(function (){
 		this.name = "???";
         this.inputer = new Inputer();
         this.game=game;
+        this.inventory = new Inventory();
 	}
 	Player.prototype={
     	message:function(string){
