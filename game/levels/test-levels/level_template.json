@@ -5,7 +5,7 @@
         {
             "name": "door",
             "options": {
-                "level": "otherlevelName"
+                "level": "template"
             }
         },
         {

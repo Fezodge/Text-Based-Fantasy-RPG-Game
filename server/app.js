@@ -17,10 +17,12 @@ var folders = fs.readdirSync(path.join(__dirname, "./../game/levels"));
 var levelList=[];
 
 for (var i=0; i<folders.length; i++){
-    var levelFromFolder = fs.readdirSync(path.join(__dirname, "./../game/levels/"+folders[i]));
-    levelFromFolder.forEach(function(v){
-        levelList.push(v + folders[i]);
-    }); 
+    if (folders[i]!=="content" && folders[i]!=="test-levels"){
+        var levelFromFolder = fs.readdirSync(path.join(__dirname, "./../game/levels/"+folders[i]));
+        levelFromFolder.forEach(function(v){
+            levelList.push("/" + folders[i] + "/" + v);
+        }); 
+    }
 }
 
 var game=new Game(levelList);
@@ -56,6 +58,10 @@ var server = net.createServer(function (socket) {
 
 }).listen(TELNET_PORT);
 server.maxConnections=50;
+
+server.on("error", function(err){
+   console.log("Error: "+err); 
+});
 
 function checkSocketIp(socket){
     /*for (var i=0; i<game.globalRoom.players.length; i++){
