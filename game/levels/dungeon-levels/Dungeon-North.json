@@ -41,9 +41,10 @@
 		{			
 			"module": "door",
 			"options": {
-				"level": "???",
+				"level": "forest-middle",
+				"name": "wall",
 				"description": "A large wall, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the stone.",
-				"type": "secret passage"
+				"type": "wall"
 			}
         }
     ]
