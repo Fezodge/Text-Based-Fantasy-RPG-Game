@@ -59,7 +59,7 @@ var logic={
 				logicHelper.player.message("The "+this.__data__.name+" dies.");
 			}
 			else{
-				logicHelper.player.message("The "+this.__data__.name+" takes a hit!");
+				logicHelper.player.message("The "+this.__data__.name+" takes a hit! It lost "+Player.damage+"health! It now has "+this.__data__.hitPoints+"hit points remaining!");
 			}
 		}
 		else{

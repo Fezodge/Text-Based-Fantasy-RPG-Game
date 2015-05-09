@@ -3,7 +3,7 @@
 //Server crashes with multiple local clients (with uncommented thing below)
 
 var TELNET_PORT=6283,
-    STARTING_LEVEL_ID="dungeon-east";
+    STARTING_LEVEL_ID="dungeon-middle";
 
 
 var fs = require("fs"),
