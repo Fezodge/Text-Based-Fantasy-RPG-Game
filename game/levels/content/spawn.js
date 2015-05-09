@@ -36,6 +36,11 @@ var logic={
 		var inventory=this.__data__.inventory;
 		if (inventory.items.length>0){
 			inventory.lendItemTo(logicHelper.player.inventory);
+			var item=inventory.items[0].item;
+			logicHelper.player.message("You found "+item.determiner+" "+item.name);
+		}
+		else{
+			logicHelper.player.message("There's nothing.");
 		}
 	}
 };	

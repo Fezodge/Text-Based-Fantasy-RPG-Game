@@ -34,8 +34,12 @@ module.exports=(function(){
 				getLevel.getPlayersLevel(this, player).room.message(player.name+": \""+string.slice(4)+"\"");
 			}
 
-      else if (string==="examine"){
+     	    else if (string==="examine"){
 				player.message(getLevel.getPlayersLevel(this, player).description);
+			}
+
+			else if (string==="inventory"){
+				player.inventory.printStatusTo(player);
 			}
 
 			else if (string==="quit"){
@@ -68,7 +72,7 @@ module.exports=(function(){
 
 	function processExternalCommand(game, player, input){//CLUSTERFUCK!
 
-    	if (startsWith(input,'__data__')) {return;}
+    	if (startsWith(input,'__')) {return;}
 
 		var currentLevel=getLevel.getPlayersLevel(game, player);
 

@@ -31,6 +31,7 @@ module.exports=(function (){
         },
         kill:function(){
           this.outputer.close();
+          this.inventory.refreshEverything();
           this.inventory.returnEverything();
         }
 	};

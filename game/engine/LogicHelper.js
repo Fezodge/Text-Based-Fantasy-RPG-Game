@@ -23,7 +23,19 @@ module.exports=(function(){
             },
             describeRoom:function(){
                 this.player.message(getLevel(this.game, this.player).description);
-            }
+            },
+			useKey:function(wearAmount){
+				if (this.player.inventory.has("key")){
+					var key=this.player.inventory.use("key");
+					if (key.durability>=0){
+						key.emit("use", {wearAmount:wearAmount, player:LogicHelper.player});
+						if (key.durability>=wearAmount){
+							return true;	
+						}
+					}
+				}
+				return false;
+			}
 		};
 
 		return LogicHelper;

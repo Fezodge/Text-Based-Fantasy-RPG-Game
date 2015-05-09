@@ -1,6 +1,6 @@
 {
     "id": "dungeon-east",
-    "description": "A horde of monsters emerges from the shadows. There are passages in every direction.",
+    "description": "A horde of monsters emerges from the shadows. There are passages in every direction. On the floor theres a grate with a lock. There is a chest in the corner.",
     "contains": [
         {
             "module": "door",
@@ -38,11 +38,22 @@
 				"action-text": ""
             }
         },
+		{
+			"module": "locked-door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "grate",
+				"type": "grate",
+                "wearAmount": 10,
+                "verb": "locked",
+				"action-text": "You "
+            }
+        },
         {
             "module": "spawn",
             "options": {
                 "name":"chest",
-                "quantity":1,
+                "quantity":3,
                 "item":"key"
             }
         }
