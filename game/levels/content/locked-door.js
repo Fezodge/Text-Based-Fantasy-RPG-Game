@@ -37,7 +37,7 @@ module.exports=function LockedDoor(options){
 			"level":options.level,
 			"name":options.name,
 			"type":options.type,
-			"actionText":options.actionText
+			"action-text":options.actionText
 		}
 	});
 	

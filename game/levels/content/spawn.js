@@ -35,8 +35,8 @@ var logic={
 	"search":function(logicHelper){
 		var inventory=this.__data__.inventory;
 		if (inventory.items.length>0){
-			inventory.lendItemTo(logicHelper.player.inventory);
 			var item=inventory.items[0].item;
+			inventory.lendItemTo(logicHelper.player.inventory);
 			logicHelper.player.message("You found "+item.determiner+" "+item.name);
 		}
 		else{
