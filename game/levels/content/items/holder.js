@@ -13,4 +13,8 @@ module.exports=function(api){
 	this.on("add", (function(amount){//instead of remove just send in a negative amount
 		this.value+=amount;
 	}).bind(this));
+	
+	this.status=function(){
+		return this.name +" - "+ this.value;
+	};
 };

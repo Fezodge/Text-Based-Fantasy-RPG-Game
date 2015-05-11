@@ -1,5 +1,6 @@
 "use strict";
 //TODO convert this.items to a Set
+//TODO returnItem won't work in destroy/respawn if item isn't in its owners inventory
 var path=require("path");
 
 module.exports=(function (){
@@ -16,10 +17,12 @@ module.exports=(function (){
 			else{
 				item.on("respawn", destroy.bind(this));
 			}
-			this.items.push({
+			item={
 				item:item,
 				owner:"this"
-			});
+			};
+			this.items.push(item);
+			return item;
 		},
 		add:function(item, owner){
 			item.owner=owner;
@@ -83,6 +86,7 @@ function respawn(item){
 }
 
 function destroy(item){
+	//this.returnItem(item);
 	this.remove(item);
 	console.log(item.type+" could not be removed please see TODO");
 }

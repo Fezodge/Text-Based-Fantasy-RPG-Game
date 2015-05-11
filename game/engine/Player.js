@@ -10,7 +10,10 @@ module.exports=(function (){
 		this.name = "???";
         this.inputer = new Inputer();
         this.game=game;
-        this.inventory = new Inventory();
+        
+        this.inventory = new Inventory(false);
+        this.inventory.addNew("holder").item.emit("configure", {name:"wallet"});        
+        
 		this.damage=10;
         this.hitPoints=100;
 	}
