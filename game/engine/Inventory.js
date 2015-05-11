@@ -3,13 +3,19 @@
 var path=require("path");
 
 module.exports=(function (){
-	function Inventory(){
+	function Inventory(canRespawn){
 		this.items=[];
+		this.canRespawn=canRespawn;
 	}
 	Inventory.prototype={
     	addNew:function(itemName){
 			var item=makeItem(itemName);
-			item.on("respawn", respawn.bind(this));
+			if (this.canRespawn){
+				item.on("respawn", respawn.bind(this));
+			}
+			else{
+				item.on("respawn", destroy.bind(this));
+			}
 			this.items.push({
 				item:item,
 				owner:"this"
@@ -18,6 +24,9 @@ module.exports=(function (){
 		add:function(item, owner){
 			item.owner=owner;
 			this.items.push(item);
+		},
+		remove:function(item){
+			
 		},
 		lendItemTo:function(otherInventory, itemIndex){
 			itemIndex=itemIndex||0;
@@ -71,4 +80,9 @@ function respawn(item){
 	item.emit("refresh");
 	//this.returnItem(item);
 	console.log(item.type+" could not be returned when respawned, please see TODO");
+}
+
+function destroy(item){
+	this.remove(item);
+	console.log(item.type+" could not be removed please see TODO");
 }

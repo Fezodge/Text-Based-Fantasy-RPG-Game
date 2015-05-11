@@ -10,6 +10,8 @@
 			- amount of items that can be taken before spawn is depleted, Infinity acceptable
 		item
 			- item file from ./items (.js extension optional)
+		canRespawn
+		    - if false respawned items are just removed
 	commands
 		search
 			- get item if there is one
@@ -22,7 +24,11 @@ var Content=require("./Content"),
 
 module.exports=function Spawn(options){
 	
-    options.inventory=new Inventory();
+	if (typeof options.canRespawn==="undefined"){
+		options.canRespawn=true;
+	}
+	
+    options.inventory=new Inventory(options.canRespawn);
 	
 	for (var i=0; i<options.quantity; i++){
 		options.inventory.addNew(options.item);
