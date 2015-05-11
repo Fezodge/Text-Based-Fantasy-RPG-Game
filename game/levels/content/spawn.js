@@ -1,7 +1,7 @@
 "use strict";
 /*
 	Spawn
-		For the player to move to other rooms
+		spawns items
 
 	options
 	    name

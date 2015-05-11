@@ -49,7 +49,9 @@ var logic={
 		if (logicHelper.useKey(this.__data__.wearAmount)){
 			this.__proto__.use(logicHelper);
 		}
-		logicHelper.player.message("The "+this.__data__.type+" is "+this.__data__.verb+".");
+		else{
+			logicHelper.player.message("The "+this.__data__.type+" is "+this.__data__.verb+".");
+		}
 	},
 	"examine":function(logicHelper){
 		logicHelper.player.message("A "+(this.__data__.type || "door")+" that leads to the "+this.__data__.level+".");

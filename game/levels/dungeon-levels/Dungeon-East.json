@@ -54,7 +54,19 @@
             "options": {
                 "name":"chest",
                 "quantity":1,
-                "item":"key"
+                "item":"key",
+                "canRespawn":true
+            }
+        },
+        {
+            "module": "chest",
+            "options": {
+                "name":"2chest",
+                "quantity":1,
+                "item":"sword",
+                "canRespawn":true,
+                "wearAmount":1,
+                "verb":"locked"
             }
         }
     ]
