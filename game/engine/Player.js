@@ -11,7 +11,7 @@ module.exports=(function (){
         this.inputer = new Inputer();
         this.game=game;
         this.inventory = new Inventory();
-		this.hitPoints=100;
+		this.damage=10;
 	}
 	Player.prototype={
     	message:function(string){
