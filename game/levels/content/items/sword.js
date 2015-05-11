@@ -27,10 +27,8 @@ module.exports=function(api){
 	
 	//I ommited the previous line because this function is called only when the sword is first created,
 	//If you want code to be run at a later time wrap it in an event like
-	/*
 	this.on("attack", (function(target){
 		target.hitPoints+=this.damage;
 	}).bind(this));
-	*/
 	//target would be whoevers getting attacked, ie. the player or a monster
 };
