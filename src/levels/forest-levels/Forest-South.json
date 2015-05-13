@@ -37,6 +37,15 @@
 				"type": "trail",
 				"action-text": ""
             }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-cottage",
+				"name": "cottage door",
+				"type": "door to the cottage",
+				"action-text": "Without knocking you slowly press the door open and walk inside"
+            }
 		}
     ]
 }

@@ -1,0 +1,23 @@
+{
+    "id": "forest-cottage",
+    "description": "A one roomed house kept in immaculent shape, with a bed in the corner",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-south",
+				"name": "door",
+				"type": "door",
+				"action-text": ""
+            }
+		},
+        {
+            "module": "bed",
+            "options": {
+                "name": "bed",
+                "description": "A comfy king-sized bed, with expensive looking sheets.",
+                "seats": 3
+            }
+        }
+    ]
+}
