@@ -1,0 +1,42 @@
+{
+    "id": "dungeon-south-west",
+    "description": "A sewr emeges out of the wall, but ends about 10 foot into the room.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "north passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "dungeon-north-west",
+				"name": "south passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-south",
+				"name": "west passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-south",
+				"name": "east passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        }
+    ]
+}

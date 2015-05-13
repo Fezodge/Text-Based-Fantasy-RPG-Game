@@ -1,0 +1,29 @@
+{
+    "id": "bedroom",
+    "description": "A bedroom with fungus filled flooring and a chair in the corner and a bed in the center of the room.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "entrance",
+                "name": "door"
+            }
+        },
+        {
+            "module": "chair",
+            "options": {
+                "name": "chair",
+                "description": "A chair.",
+                "seats": 1
+            }
+        },
+        {
+            "module": "bed",
+            "options": {
+                "name": "bed",
+                "description": "A comfy king-sized bed, only slightly moldy.",
+                "seats": 3
+            }
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "id": "forest-north-east",
+    "description": "A large thicket of shrubs that are prickly and stingy completely surround you.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-south-east",
+				"name": "north trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "forest-east",
+				"name": "south trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-north",
+				"name": "west trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-north-west",
+				"name": "east trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        }
+    ]
+}

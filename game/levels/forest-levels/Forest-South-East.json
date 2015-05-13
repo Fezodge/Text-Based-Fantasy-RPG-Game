@@ -1,0 +1,42 @@
+{
+    "id": "forest-south-east",
+    "description": "A knarled tree lies fallen over in the middle of the path.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-east",
+				"name": "north trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "forest-north-east",
+				"name": "south trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-south",
+				"name": "west trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-west",
+				"name": "east trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        }
+    ]
+}

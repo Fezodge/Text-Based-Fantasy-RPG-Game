@@ -1,0 +1,51 @@
+{
+    "id": "dungeon-middle",
+    "description": "On top of a floor of cobblestone lies 4 chests, one in each corner of the room, all identical.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "dungeon-north",
+				"name": "north passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-south",
+				"name": "south passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "west passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-east",
+				"name": "east passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{			
+			"module": "door",
+            "options": {
+                "level": "forest-middle",
+				"name": "tree",
+				"type": "trapdoor",
+				"action-text": ""
+            }
+		}
+    ]
+}

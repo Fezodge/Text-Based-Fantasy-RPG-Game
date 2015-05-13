@@ -1,0 +1,42 @@
+{
+    "id": "forest-south-west",
+    "description": "Lots of trees stnd in and around the pathway, all holding bird nests.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-west",
+				"name": "north trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "forest-north-west",
+				"name": "south trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-south",
+				"name": "west trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-south",
+				"name": "east trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        }
+    ]
+}

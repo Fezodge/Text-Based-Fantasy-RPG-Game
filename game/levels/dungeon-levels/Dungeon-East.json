@@ -1,0 +1,73 @@
+{
+    "id": "dungeon-east",
+    "description": "A horde of monsters emerges from the shadows. There are passages in every direction. On the floor theres a grate with a lock. There is a chest in the corner.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "dungeon-north-east",
+				"name": "north passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "dungeon-south-east",
+				"name": "south passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-middle",
+				"name": "west passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "east passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "locked-door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "grate",
+				"type": "grate",
+                "wearAmount": 4,
+                "verb": "locked",
+				"action-text": "You "
+            }
+        },
+        {
+            "module": "spawn",
+            "options": {
+                "name":"chest",
+                "quantity":1,
+                "item":"key",
+                "canRespawn":true
+            }
+        },
+        {
+            "module": "chest",
+            "options": {
+                "name":"2chest",
+                "quantity":1,
+                "item":"sword",
+                "canRespawn":true,
+                "wearAmount":1,
+                "verb":"locked"
+            }
+        }
+    ]
+}

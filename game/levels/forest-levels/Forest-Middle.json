@@ -1,0 +1,52 @@
+{
+    "id": "forest-middle",
+    "description": "A small clearing in the middle of the forest. One tree stands directly in the middle of this clearing, but it is long dead.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-north",
+				"name": "north trail",
+				"type": "trail",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-south",
+				"name": "south trail",
+				"type": "trail",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-west",
+				"name": "west trail",
+				"type": "trail",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-east",
+				"name": "east trail",
+				"type": "trail",
+				"action-text": ""
+            }
+		},
+		{			
+			"module": "door",
+            "options": {
+                "level": "dungeon-north",
+				"name": "tree",
+				"type": "trapdoor",
+				"description": "A large tree, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the wood.",
+				"action-text": "As you open the rusty door, a waft of foul stenching air hits you in the face. You carefully head down the steps, and into the tree"
+            }
+		}
+    ]
+}

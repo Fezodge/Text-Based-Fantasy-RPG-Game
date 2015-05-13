@@ -1,0 +1,51 @@
+{
+    "id": "dungeon-north",
+    "description": "A big wall looms over you. this wall somehow seems different to all the others...",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "dungeon-south",
+				"name": "north passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{	
+			"module": "door",
+            "options": {
+                "level": "dungeon-middle",
+				"name": "south passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{		
+			"module": "door",
+            "options": {
+                "level": "dungeon-north-west",
+				"name": "west passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-north-east",
+				"name": "east passage",
+				"type": "passage",
+				"action-text": ""
+            }
+		},
+		{			
+			"module": "door",
+			"options": {
+				"level": "forest-middle",
+				"name": "wall",
+				"description": "A large wall, which seems somewhat perculiar. As you look closer, you see that there's a small door etched into the stone.",
+				"type": "wall"
+			}
+        }
+    ]
+}

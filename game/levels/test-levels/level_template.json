@@ -1,0 +1,19 @@
+{
+    "id": "template",
+    "description": "a sample level",
+    "contains": [
+        {
+            "name": "door",
+            "options": {
+                "level": "template"
+            }
+        },
+        {
+            "name": "chair",
+            "options": {
+                "type": "sofa_comfy",
+                "seats": 3
+            }
+        }
+    ]
+}

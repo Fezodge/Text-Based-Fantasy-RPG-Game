@@ -1,0 +1,42 @@
+{
+    "id": "dungeon-north-west",
+    "description": "Dead remains of some kind or vermin lie splatted across the room.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "dungeon-south-west",
+				"name": "north passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "dungeon-west",
+				"name": "south passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-north-east",
+				"name": "west passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "dungeon-north",
+				"name": "east passage",
+				"type": "passage",
+				"action-text": ""
+            }
+        }
+    ]
+}

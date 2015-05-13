@@ -1,0 +1,42 @@
+{
+    "id": "forest-west",
+    "description": "A large stone monument stands gracefully in the middle of a clearing, facing east.",
+    "contains": [
+        {
+            "module": "door",
+            "options": {
+                "level": "forest-north-west",
+				"name": "north trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{	
+			"module": "door",
+            "options": {
+                "level": "forest-south-west",
+				"name": "south trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-east",
+				"name": "west trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        },
+		{
+			"module": "door",
+            "options": {
+                "level": "forest-middle",
+				"name": "east trail",
+				"type": "trail",
+				"action-text": ""
+            }
+        }
+    ]
+}
