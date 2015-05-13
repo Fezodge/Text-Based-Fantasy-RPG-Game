@@ -5,68 +5,64 @@ var path=require("path");
 
 module.exports=(function (){
 	function Inventory(canRespawn){
-		this.items=[];
+		this.slots=new Set;
 		this.canRespawn=canRespawn;
 	}
 	Inventory.prototype={
-    	addNew:function(itemName){
-			var item=makeItem(itemName);
+    	addNewSlot:function(itemType){
+			var item=makeItem(itemType);
 			if (this.canRespawn){
 				item.on("respawn", respawn.bind(this));
 			}
 			else{
 				item.on("respawn", destroy.bind(this));
 			}
-			item={
-				item:item,
-				owner:"this"
-			};
-			this.items.push(item);
+			var slot=new Slot(item, "this");
+			this.slots.add(item);
+			return slot;
+		},
+		addSlot:function(slot, owner){
+			item.owner=owner||slot.owner;
+			this.items.add(item);
 			return item;
 		},
-		add:function(item, owner){
-			item.owner=owner;
-			this.items.push(item);
+		removeSlot:function(slot){
+			this.items.delete(item);
+			return slot;
 		},
-		remove:function(item){
-			
-		},
-		lendItemTo:function(otherInventory, itemIndex){
-			itemIndex=itemIndex||0;
-			otherInventory.add(this.items.splice(itemIndex,1)[0], this);
-		},
-		returnItem:function(itemIndex){
-			var owner=this.items[itemIndex].owner;
-			if (owner!=="this"){
-				owner.add(this.items.splice(itemIndex,1)[0], "this");
+		giveBackEverything:function(){
+			for (var item of this.items){
+				this.returnItem(item);
 			}
 		},
-		returnEverything:function(){
-			for (var i=0; i<this.items.length; i++){
-				this.returnItem(i);
-			}
-		},
-		refreshItem:function(itemIndex){
-			this.items[itemIndex].item.emit("refresh");
+		refreshItem:function(item){
+			item.emit("refresh");
 		},
 		refreshEverything:function(){
-			for (var i=0; i<this.items.length; i++){
-				this.refreshItem(i);
+			for (var item of this.items){
+				this.refreshItem(item);
 			}
 		},
-		has:function(itemType){
-			return Boolean(this.use(itemType));
+		hasItemType:function(itemType){
+			return Boolean(this.getItemFromType(itemType));
 		},
-		use:function(itemType){
-			for (var i=0; i<this.items.length; i++){
-				if (this.items[i].item.type===itemType){
-					return this.items[i].item;
+		getItemFromType:function(itemType){
+			for (var item of this.items){
+				if (item.item.type===itemType){
+					return item.item;
 				}
 			}
 		},
-		printStatusTo:function(player){
-			for (var i=0; i<this.items.length; i++){
-				player.message(this.items[i].item.status());
+		findInventoryItemByItem:function(item){
+			for (var inventoryItem of this.items){
+				if (invetoryItem.item===item){
+					return inventoryItem;
+				}
+			}	
+		},
+		printStatusTo:function(messenger){
+			for (var slot of this.slots){
+				messenger.message(slot.item.status());
 			}
 		}
 	};
@@ -81,12 +77,39 @@ function makeItem(itemName){
 
 function respawn(item){
 	item.emit("refresh");
-	//this.returnItem(item);
-	console.log(item.type+" could not be returned when respawned, please see TODO");
+	this.giveBackItem(findInventoryItemByItem(item));
 }
 
-function destroy(item){
-	//this.returnItem(item);
+function destroy(slot){
+	slot.returnToOwner(???);
 	this.remove(item);
-	console.log(item.type+" could not be removed please see TODO");
 }
+
+var Slot=(function(){
+	function Slot(item, owner){
+		this.item=item;
+		this.ownerInventory=owner;
+		this.currentInventory=null;
+	}
+	Slot.prototype={
+		lendTo:function(otherInventory, currentInventory){
+			if (this.owner.items.delete(this)){
+				otherInventory.add(this);
+			}
+			else if (currentInventory && currentInventory.items.delete(this)){
+				otherInventory.add(this);
+			}
+			else{
+				throw "Slow.prototype.lendTo Must have current inventory, if item isn't in owner";
+			}
+		},
+		returnToOwner:function(currentInventory){
+			var owner=this.owner;
+			if (owner!=="this"){
+				owner.add(currentInventory.items.delete(this), "this");
+			}
+		},
+	};
+	return Slot;
+}());
+
